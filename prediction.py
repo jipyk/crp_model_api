@@ -17,11 +17,18 @@ class my_id(BaseModel):
 # Setting data type
 @prediction_app.get("/")
 def root():
+    '''
+    default endpoint. 
+    '''
     return {"message":"this api deploy a model for credit scoring"}
 
 
 @prediction_app.post("/model")
 def prediction(id: int):
+    '''
+    Main route. this function return score prediction, the class corresponding and the client data
+    This function needs as argument the id of client
+    '''
     model=pickle.load(open('./files/model','rb'))
     reducer = pickle.load(open('./files/reducer','rb'))
     scaler = pickle.load(open('./files/scaler','rb'))
