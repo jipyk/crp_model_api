@@ -27,7 +27,7 @@ def root():
 def prediction(id: int):
     '''
     Main route. this function return score prediction, the class corresponding and the client data
-    This function needs as argument the id of client
+    This function needs as argument the id of client. For example enter id: "100001"
     '''
     model=pickle.load(open('./files/model','rb'))
     reducer = pickle.load(open('./files/reducer','rb'))
